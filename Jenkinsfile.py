@@ -5,7 +5,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Stage: Checkout - Pulling source code...'
-                // Code is automatically checked out if using a Pipeline from SCM
             }
         }
 
