@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     stages {
-        // Stage 1: Checkout
         stage('Checkout') {
             steps {
                 echo 'Stage: Checkout - Pulling source code...'
@@ -10,7 +9,6 @@ pipeline {
             }
         }
 
-        // Stage 2: Parallel Checks
         stage('Parallel Checks') {
             parallel {
                 stage('Unit Check') {
@@ -24,9 +22,6 @@ pipeline {
                     }
                 }
             }
-        }
-
-        // Stage 3: Summary
         stage('Summary') {
             steps {
                 echo 'Stage: Summary - Compiling results...'
@@ -34,7 +29,6 @@ pipeline {
         }
     }
 
-    // Post-execution blocks
     post {
         success {
             echo 'POST: Pipeline completed successfully!'
